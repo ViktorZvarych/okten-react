@@ -3,24 +3,23 @@ import getCharacterFields from "../services/getCharacterFields.service";
 
 const Character = ({character}) => {
     const characterFields = getCharacterFields(character);
-    console.log(characterFields)
 
     return (
         <article>
             {
                 characterFields.map(
-                    ([key, value]) => {
+                    ([key, value], index) => {
                         switch (key) {
                             case 'id':
                                 return '';
                             case 'name':
                             case 'surname':
-                                return <h3>{`${key}: ${value}`}</h3>;
+                                return <h3 key={index+value}>{`${key}: ${value}`}</h3>;
                             case 'image':
                             case 'photo':
-                                return <img src={value}  alt={value}/>;
+                                return <img key={index+value} src={value}  alt={value}/>;
                             default:
-                                return <p>{`${key}: ${value}`}</p>;
+                                return <p key={index+value}>{`${key}: ${value}`}</p>;
                         }
                     }
                 )

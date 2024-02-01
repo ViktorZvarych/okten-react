@@ -1,10 +1,12 @@
 import React from 'react';
+import Characters from "./Components/Characters";
+import './App.css';
 
 const App = () => {
     return (
-        <div>
-            <h1>App</h1>
-        </div>
+        <section>
+            <Characters/>
+        </section>
     );
 };
 

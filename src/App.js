@@ -1,10 +1,10 @@
 import React from 'react';
-import Simpsons from "./components/Simpsons/Simpsons";
+import Rickandmorties from "./components/Rickandmorties/Rickandmorties";
 
 const App = () => {
     return (
         <>
-            <Simpsons/>
+            <Rickandmorties/>
         </>
     );
 };

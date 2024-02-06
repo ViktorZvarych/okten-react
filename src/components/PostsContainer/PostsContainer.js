@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
-import PostList from './PostList';
-import PostDetails from "./PostDetails";
+import PostsList from '../PostsList/PostsList';
+import PostDetails from "../PostDetails/PostDetails";
 
 import styles from './PostsContainer.module.css';
 
@@ -15,7 +15,7 @@ const PostsContainer = () => {
 
     return (
         <div className={styles.container}>
-            <PostList showPostDetails={showPostDetails}/>
+            <PostsList showPostDetails={showPostDetails}/>
 
             <PostDetails postId={selectedPostId}/>
         </div>

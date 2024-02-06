@@ -1,8 +1,12 @@
-async function getPostsFromApi() {
-    const responseJson = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const response = await responseJson.json();
+import axiosService from "./axios.service";
+import {urls} from "../constants/urls";
 
-    return response;
+async function getPostsFromApi() {
+    const response = await axiosService(urls.posts.base);
+    const posts = await response.data;
+    console.log(urls.posts.base)
+
+    return posts;
 }
 
 async function getPostDetailsFromApi(id) {

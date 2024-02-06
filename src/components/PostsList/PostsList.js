@@ -1,8 +1,8 @@
 import React, {memo, useEffect, useState} from 'react';
-import Post from './Post';
-import {getPostsFromApi} from "../services/getDataFromApi.service";
+import Post from '../Post/Post';
+import {getPostsFromApi} from "../../services/getDataFromApi.service";
 
-const PostList = memo(({showPostDetails}) => {
+const PostsList = memo(({showPostDetails}) => {
     console.log('PostList render');
 
     const [posts, setPosts] = useState(null);
@@ -23,4 +23,4 @@ const PostList = memo(({showPostDetails}) => {
     );
 });
 
-export default PostList;
+export default PostsList;

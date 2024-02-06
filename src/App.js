@@ -1,5 +1,5 @@
 import React from 'react';
-import PostsContainer from "./components/PostsContainer";
+import PostsContainer from "./components/PostsContainer/PostsContainer";
 
 const App = () => {
     console.log('App render');

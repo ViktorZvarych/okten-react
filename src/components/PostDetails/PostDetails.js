@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getPostDetailsFromApi} from "../services/getDataFromApi.service";
+import {getPostDetailsFromApi} from "../../services/getDataFromApi.service";
 
 const PostDetails = ({postId}) => {
     console.log('PostDetails render');

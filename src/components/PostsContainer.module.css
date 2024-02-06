@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    section {
+        height: 95vh;
+        overflow: auto;
+    }
+
+    > * {
+        width: 45%;
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid gray;
+
+        article {
+            margin: 5px;
+        }
+    }
+
+}
+

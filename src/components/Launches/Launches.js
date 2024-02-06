@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import getLaunchesFromApiService from "../services/getLaunchesFromApi.service";
-import Launch from "./Launch";
+import getLaunchesFromApiService from "../../services/getLaunchesFromApi.service";
+import Launch from "../Launch/Launch";
 
 import styles from './Launches.module.css';
 

@@ -1,20 +1,40 @@
 // ---AXIOS---
-import React from 'react';
+import React, {useState} from 'react';
 import axios from "axios";
 
     const AxiosComponent = () => {
+        const [errorMessage, setErrorMessage] = useState(null);
+
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
-            .then(response => console.log('1. fetch', response));
+            .then(response => console.log('1. fetch', response))
+            .catch((error) => {
+                console.log('1. fetch', error);
+            });
 
         axios('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.data)
-            .then(response => console.log('2. axios', response));
+            .then(data => console.log('2. axios', data))
+            .catch((error) => {
+                console.log('1. fetch', error);
+            });
+
+        axios
+            .get('https://jsonplaceholder.typicode.com/posts')
+            .then(({ data }) =>
+                console.log('3. axios with get', data)
+            )
+            .catch((error) => {
+                console.log('1. fetch', error);
+            });
 
         axios
             .create({baseURL: 'https://jsonplaceholder.typicode.com'})
             .get('/posts')
-            .then(({data}) => console.log('3. axios with create baseURL', data));
+            .then(({data}) => console.log('4. axios with get and create baseURL', data))
+            .catch((error) => {
+                console.log('1. fetch', error);
+            });
 
 // src/
 // |---components/
@@ -79,11 +99,20 @@ import axios from "axios";
 
         // export {postsService}
 
-        postsService.getAll().then(({data}) => console.log('4. postService', data));
+        postsService
+            .getAll()
+            .then(({data}) => console.log('5. postService', data))
+            .catch(error => {
+                console.log('5. catch - postService', error);
+                setErrorMessage(error.message);
+            })
+            .finally(()=> console.log('5. finally - postService'));
 
         return (
             <div>
-
+                {errorMessage
+                &&
+                <p>{errorMessage}</p>}
             </div>
         );
     };

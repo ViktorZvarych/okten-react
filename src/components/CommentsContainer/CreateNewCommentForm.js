@@ -18,8 +18,6 @@ const CreateNewCommentForm = () => {
         .postNewComment(data)
         .then(({data}) => setNewComment(data))
 
-    // console.log(errors);
-
     return (
         <>
             <div>

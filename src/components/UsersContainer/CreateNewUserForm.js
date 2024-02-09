@@ -18,8 +18,6 @@ const CreateNewUserForm = () => {
         .postNewUser(data)
         .then(({data}) => setNewUser(data))
 
-    // console.log(errors);
-
     return (
         <>
             <div>

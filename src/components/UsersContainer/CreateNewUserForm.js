@@ -22,140 +22,143 @@ const CreateNewUserForm = () => {
 
     return (
         <>
-            {
-                newUser
-                &&
-                <>
-                    <h2>New User:</h2>
-                    <User user={newUser}/>
-                </>
-            }
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    {...register(
-                        "name",
-                        {
-                            required: `Name is required`,
-                            minLength: {
-                                value: 3,
-                                message: 'Min length is 3'
-                            },
-                            maxLength: {
-                                value: 50,
-                                message: 'Max length is 50'
-                            }
-                        }
-                    )}
-                />
+            <div>
                 {
-                    errors.name
+                    newUser
                     &&
-                    <span role="alert">{errors.name.message}</span>
+                    <>
+                        <h2>New User:</h2>
+                        <User user={newUser}/>
+                    </>
                 }
-                <hr/>
 
-                <input
-                    type="text"
-                    placeholder="Username"
-                    {...register(
-                        "username",
-                        {
-                            required: 'Username is required',
-                            minLength: {
-                                value: 3,
-                                message: 'Min length is 3'
-                            },
-                            maxLength: {
-                                value: 30,
-                                message: 'Max length is 30'
-                            }
-                        }
-                    )}
-                />
-                {
-                    errors.username
-                    &&
-                    <span role="alert">{errors.username.message}</span>
-                }
-                <hr/>
-
-                <input
-                    type="text"
-                    placeholder="Email"
-                    {...register(
-                        "email",
-                        {
-                            required: 'Email is required',
-                            minLength: {
-                                value: 5,
-                                message: 'Min length is 5'
-                            },
-                            pattern: {
-                                value: /^\S+@\S+$/,
-                                message: 'Invalid email'
-                            }
-                        }
-                    )}
-                />
-                {
-                    errors.email
-                    &&
-                    <span role="alert">{errors.email.message}</span>
-                }
-                <hr/>
-
-                <fieldset>
-                    <legend>Address</legend>
-
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                         type="text"
-                        placeholder="Street"
+                        placeholder="Name"
                         {...register(
-                            "address.street"
-                        )}
-                    />
-                    <hr/>
-
-                    <input
-                        type="text"
-                        placeholder="Suite"
-                        {...register(
-                            "address.suite"
+                            "name",
+                            {
+                                required: `Name is required`,
+                                minLength: {
+                                    value: 3,
+                                    message: 'Min length is 3'
+                                },
+                                maxLength: {
+                                    value: 50,
+                                    message: 'Max length is 50'
+                                }
+                            }
                         )}
                     />
                     {
-                        errors.address
+                        errors.name
                         &&
-                        console.log(errors.address.suite.message)
-                        &&
-                        <p>{errors.address.suite.message}</p>
+                        <span role="alert">{errors.name.message}</span>
                     }
                     <hr/>
 
                     <input
                         type="text"
-                        placeholder="City"
+                        placeholder="Username"
                         {...register(
-                            "address.city"
+                            "username",
+                            {
+                                required: 'Username is required',
+                                minLength: {
+                                    value: 3,
+                                    message: 'Min length is 3'
+                                },
+                                maxLength: {
+                                    value: 30,
+                                    message: 'Max length is 30'
+                                }
+                            }
                         )}
                     />
+                    {
+                        errors.username
+                        &&
+                        <span role="alert">{errors.username.message}</span>
+                    }
                     <hr/>
 
                     <input
-                        type="number"
-                        placeholder="Zipcode"
+                        type="text"
+                        placeholder="Email"
                         {...register(
-                            "address.zipcode"
+                            "email",
+                            {
+                                required: 'Email is required',
+                                minLength: {
+                                    value: 5,
+                                    message: 'Min length is 5'
+                                },
+                                pattern: {
+                                    value: /^\S+@\S+$/,
+                                    message: 'Invalid email'
+                                }
+                            }
                         )}
                     />
+                    {
+                        errors.email
+                        &&
+                        <span role="alert">{errors.email.message}</span>
+                    }
                     <hr/>
-                </fieldset>
 
-                <input type="submit" value='Create New User'/>
-            </form>
+                    <fieldset>
+                        <legend>Address</legend>
+
+                        <input
+                            type="text"
+                            placeholder="Street"
+                            {...register(
+                                "address.street"
+                            )}
+                        />
+                        <hr/>
+
+                        <input
+                            type="text"
+                            placeholder="Suite"
+                            {...register(
+                                "address.suite"
+                            )}
+                        />
+                        {
+                            errors.address
+                            &&
+                            console.log(errors.address.suite.message)
+                            &&
+                            <p>{errors.address.suite.message}</p>
+                        }
+                        <hr/>
+
+                        <input
+                            type="text"
+                            placeholder="City"
+                            {...register(
+                                "address.city"
+                            )}
+                        />
+                        <hr/>
+
+                        <input
+                            type="number"
+                            placeholder="Zipcode"
+                            {...register(
+                                "address.zipcode"
+                            )}
+                        />
+                        <hr/>
+                    </fieldset>
+
+                    <input type="submit" value='Create New User'/>
+                </form>
+            </div>
+
         </>
 
     );

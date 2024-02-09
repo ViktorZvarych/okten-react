@@ -22,93 +22,95 @@ const CreateNewCommentForm = () => {
 
     return (
         <>
-            {
-                newComment
-                &&
-                <>
-                    <h2>New Comment:</h2>
-                    <Comment comment={newComment}/>
-                </>
-            }
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    {...register(
-                        "name",
-                        {
-                            required: `Name is required`,
-                            minLength: {
-                                value: 3,
-                                message: 'Min length is 3'
-                            },
-                            maxLength: {
-                                value: 50,
-                                message: 'Max length is 80'
-                            }
-                        }
-                    )}
-                />
+            <div>
                 {
-                    errors.name
+                    newComment
                     &&
-                    <span role="alert">{errors.name.message}</span>
+                    <>
+                        <h2>New Comment:</h2>
+                        <Comment comment={newComment}/>
+                    </>
                 }
-                <hr/>
 
-                <input
-                    type="text"
-                    placeholder="Comment"
-                    {...register(
-                        "body",
-                        {
-                            required: 'Comment is required',
-                            minLength: {
-                                value: 3,
-                                message: 'Min length is 3'
-                            },
-                            maxLength: {
-                                value: 300,
-                                message: 'Max length is 300'
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        {...register(
+                            "name",
+                            {
+                                required: `Name is required`,
+                                minLength: {
+                                    value: 3,
+                                    message: 'Min length is 3'
+                                },
+                                maxLength: {
+                                    value: 50,
+                                    message: 'Max length is 80'
+                                }
                             }
-                        }
-                    )}
-                />
-                {
-                    errors.body
-                    &&
-                    <span role="alert">{errors.body.message}</span>
-                }
-                <hr/>
+                        )}
+                    />
+                    {
+                        errors.name
+                        &&
+                        <span role="alert">{errors.name.message}</span>
+                    }
+                    <hr/>
 
-                <input
-                    type="text"
-                    placeholder="Email"
-                    {...register(
-                        "email",
-                        {
-                            required: 'Email is required',
-                            minLength: {
-                                value: 5,
-                                message: 'Min length is 5'
-                            },
-                            pattern: {
-                                value: /^\S+@\S+$/,
-                                message: 'Invalid email'
+                    <input
+                        type="text"
+                        placeholder="Comment"
+                        {...register(
+                            "body",
+                            {
+                                required: 'Comment is required',
+                                minLength: {
+                                    value: 3,
+                                    message: 'Min length is 3'
+                                },
+                                maxLength: {
+                                    value: 300,
+                                    message: 'Max length is 300'
+                                }
                             }
-                        }
-                    )}
-                />
-                {
-                    errors.email
-                    &&
-                    <span role="alert">{errors.email.message}</span>
-                }
-                <hr/>
+                        )}
+                    />
+                    {
+                        errors.body
+                        &&
+                        <span role="alert">{errors.body.message}</span>
+                    }
+                    <hr/>
 
-                <input type="submit" value='Create New Comment'/>
-            </form>
+                    <input
+                        type="text"
+                        placeholder="Email"
+                        {...register(
+                            "email",
+                            {
+                                required: 'Email is required',
+                                minLength: {
+                                    value: 5,
+                                    message: 'Min length is 5'
+                                },
+                                pattern: {
+                                    value: /^\S+@\S+$/,
+                                    message: 'Invalid email'
+                                }
+                            }
+                        )}
+                    />
+                    {
+                        errors.email
+                        &&
+                        <span role="alert">{errors.email.message}</span>
+                    }
+                    <hr/>
+
+                    <input type="submit" value='Create New Comment'/>
+                </form>
+            </div>
         </>
 
     );

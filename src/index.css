@@ -9,6 +9,7 @@
     gap: 1rem;
     > section {
         display: flex;
+        justify-content: space-evenly;
         gap: 1rem;
         height: 90vh;
         overflow: auto;
@@ -16,8 +17,18 @@
         max-width: 48%;
         padding: 5px;
         border: 1px solid gray;
-        ~ul {
 
+        h2 {
+            text-align: center;
+        }
+        ul {
+            height: 70vh;
+            overflow: auto;
+        }
+
+        @media screen and (max-width: 1050px) {
+            width: 90%;
+            max-width: 90%;
         }
     }
 }

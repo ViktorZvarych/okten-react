@@ -10,13 +10,15 @@ const CreateNewCommentForm = () => {
     const {
         register,
         handleSubmit,
-        formState: {errors}
+        formState: {errors},
+        reset
     } = useForm();
 
 
     const onSubmit = data => commentsService
         .postNewComment(data)
         .then(({data}) => setNewComment(data))
+        .then(()=>reset())
 
     return (
         <>

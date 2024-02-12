@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import {usersService} from "../../services/users.service";
 import {useForm} from "react-hook-form";
 import User from "./User";
@@ -10,13 +11,15 @@ const CreateNewUserForm = () => {
     const {
         register,
         handleSubmit,
-        formState: {errors}
+        formState: {errors},
+        reset
     } = useForm();
 
 
     const onSubmit = data => usersService
         .postNewUser(data)
         .then(({data}) => setNewUser(data))
+        .then(()=>reset())
 
     return (
         <>

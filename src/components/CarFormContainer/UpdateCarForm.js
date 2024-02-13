@@ -22,10 +22,9 @@ const UpdateCarForm = ({car, changeShouldUpdate}) => {
         setValue('year', year, {shouldValidate: true})
     }, []);
 
-    const updateNewCar = (data) => {
-        console.log(id, data);
-        carsService.update(id, data)
-            .then(() => changeShouldUpdate());
+    const updateNewCar = async (data) => {
+        await carsService.update(id, data);
+        changeShouldUpdate();
     };
 
     return (

@@ -13,9 +13,9 @@ const Car = ({car, changeShouldGetAll}) => {
         changeShouldGetAll();
     }
 
-    const deleteCar = () => {
-        carsService.delete(id)
-            .then(() => changeShouldGetAll());
+    const deleteCar = async () => {
+        await carsService.delete(id);
+        changeShouldGetAll();
     };
 
     return (

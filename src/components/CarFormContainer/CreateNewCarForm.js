@@ -11,11 +11,14 @@ const CreateNewCarForm = ({changeShouldGetAll}) => {
     const {
         register,
         handleSubmit,
-        formState: {isValid, errors}
+        formState: {isValid, errors},
+        reset
     } = useForm({mode: 'all'})
 
-    const createNewCar = (data) => {
-        carsService.create(data).then(() => changeShouldGetAll());
+    const createNewCar = async (data) => {
+        await carsService.create(data);
+        reset();
+        changeShouldGetAll();
     };
 
     return (
@@ -25,7 +28,9 @@ const CreateNewCarForm = ({changeShouldGetAll}) => {
             <YearInput register={register} errors={errors}/>
             <PriceInput register={register} errors={errors}/>
 
-            <button disabled={!isValid}>Create new Car</button>
+            <div>
+                <button disabled={!isValid}>Create new Car</button>
+            </div>
         </form>
     );
 };

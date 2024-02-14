@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+
+import {postsService} from "../../services/postsService";
+import Post from "../PostsContainer/Post";
 
 const Posts = () => {
+    const [posts, setPosts] = useState(null);
+
+    useEffect( () => {
+        postsService.getAll().then(({data}) => setPosts(data))
+    }, []);
+
     return (
-        <div>
-            
-        </div>
+        <ol>
+            {posts && posts.map(post => <Post key={post.id} post={post}/>)}
+        </ol>
     );
 };
 

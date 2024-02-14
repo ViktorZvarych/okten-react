@@ -6,8 +6,9 @@ import Comments from "../components/CommentsContainer/Comments";
 const CommentsPage = () => {
     return (
         <div>
-            <Comments />
-            <Outlet />
+            <h2>Comments Page</h2>
+            <Comments/>
+            <Outlet/>
         </div>
     );
 };

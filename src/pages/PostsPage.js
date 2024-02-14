@@ -5,7 +5,8 @@ import Posts from "../components/PostsContainer/Posts";
 const PostsPage = () => {
     return (
         <div>
-            <Posts />
+            <h2>Posts Page</h2>
+            <Posts/>
         </div>
     );
 };

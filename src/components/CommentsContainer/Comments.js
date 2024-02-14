@@ -12,7 +12,6 @@ const Comments = () => {
 
     return (
         <ol>
-            {/* eslint-disable-next-line react/jsx-no-undef */}
             {comments && comments.map(comment => <Comment key={comment.id} comment={comment}/>)}
         </ol>
     );

@@ -1,0 +1,40 @@
+.users {
+
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+        margin: 0.5rem;
+        height: 82vh;
+        overflow: auto;
+    }
+
+    > div:nth-of-type(1) {
+        width: 33%;
+    }
+
+    > div:nth-of-type(2) {
+        width: 66%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        > div{
+            padding: 5px;
+            border: 1px solid darkslategray;
+            overflow: auto;
+        }
+        > div:nth-of-type(1) {
+            width: 40%;
+        }
+        > div:nth-of-type(2) {
+            width: 60%;
+        }
+    }
+
+    li,
+    button {
+        margin: 5px;
+        padding: 2px;
+    }
+}

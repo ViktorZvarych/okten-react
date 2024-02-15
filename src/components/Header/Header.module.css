@@ -1,6 +1,7 @@
-header {
+.header {
     width: 100vw;
-    height: 2.5rem;
+    height: 10vh;
+    min-height: 2.5rem;
     display: flex;
     align-items: center;
     background-color: darkslategray;

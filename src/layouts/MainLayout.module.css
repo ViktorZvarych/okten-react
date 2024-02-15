@@ -1,0 +1,6 @@
+.main {
+    width: 100vw;
+    height: 79vh;
+    min-height: 7rem;
+    overflow: auto;
+}

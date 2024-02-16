@@ -1,33 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {usersService} from "../../services";
+import {createDetailsArray} from "../../helpers";
 
 const UserDetails = ({id, state}) => {
     const [userDetails, setUserDetails] = useState(null);
 
     useEffect(() => {
-        if (state) {
-            setUserDetails(createUserDetails(state))
+        if (state?.users) {
+            setUserDetails(createDetailsArray(state.users))
             // console.log(state)
         } else {
             usersService
                 .getById(id)
-                .then(({data}) => setUserDetails(createUserDetails(data)))
+                .then(({data}) => setUserDetails(createDetailsArray(data)))
         }
     }, [id, state]);
-
-    const userDetailsArray = [];
-    const createUserDetails = (user) => {
-
-        for (const [key, value] of Object.entries(user)) {
-            if (typeof value === 'object') {
-                userDetailsArray.push({key: `${key.toUpperCase()} `, value: ''});
-                createUserDetails(value);
-            } else {
-                userDetailsArray.push({key: `- ${key[0].toUpperCase() + key.slice(1)}`, value: `${value}`});
-            }
-        }
-        return userDetailsArray;
-    }
 
     return (
         <div>

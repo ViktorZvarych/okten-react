@@ -7,7 +7,7 @@ const Comment = ({comment}) => {
     return (
         <div>
             <p>Id: {id} - Name: {name}</p>
-            <Button id={id}/>
+            <Button id={id} comment={comment}/>
         </div>
     );
 };

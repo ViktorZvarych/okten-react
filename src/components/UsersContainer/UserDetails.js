@@ -6,9 +6,9 @@ const UserDetails = ({id, state}) => {
     const [userDetails, setUserDetails] = useState(null);
 
     useEffect(() => {
-        if (state?.users) {
-            setUserDetails(createDetailsArray(state.users))
-            // console.log(state)
+        if (state?.user) {
+            setUserDetails(createDetailsArray(state.user))
+            console.log(state)
         } else {
             usersService
                 .getById(id)

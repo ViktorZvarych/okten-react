@@ -8,7 +8,7 @@ const User = ({user}) => {
     return (
         <div>
             <p>Id: {id} - Name: {name}</p>
-            <Button id={id}/>
+            <Button id={id} user={user}/>
         </div>
     )
         ;

@@ -7,7 +7,7 @@ const Post = ({post}) => {
     return (
         <div>
             <p>Id: {id} - Title: {title}</p>
-            <Button id={id}/>
+            <Button id={id} post={post}/>
         </div>
 
     )

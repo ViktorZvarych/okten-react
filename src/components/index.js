@@ -1,0 +1,11 @@
+export {default as Button} from './Button/Button';
+export {default as Header} from './Header/Header';
+export {default as Comment} from './CommentsContainer/Comment';
+export {default as CommentDetails} from './CommentsContainer/CommentDetails';
+export {default as Comments} from './CommentsContainer/Comments';
+export {default as Post} from './PostsContainer/Post';
+export {default as PostDetails} from './PostsContainer/PostDetails';
+export {default as Posts} from './PostsContainer/Posts';
+export {default as User} from './UsersContainer/User';
+export {default as UserDetails} from './UsersContainer/UserDetails';
+export {default as Users} from './UsersContainer/Users';

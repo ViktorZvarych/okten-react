@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    min-height: 3rem;
+    background: darkslategray;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10vw;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        padding: 5px 10px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: snow;
+        border-bottom: 1px solid snow;
+
+        &:hover {
+            color: chartreuse;
+            border-bottom: 1px solid chartreuse;
+        }
+
+        &[class='active'] {
+            color: chartreuse;
+            border-top: 1px solid chartreuse;
+            border-bottom: 1px solid chartreuse;
+        }
+    }
+}

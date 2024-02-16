@@ -12,7 +12,7 @@ const Users = () => {
     // }, []);
 
     const {data:users} = useLoaderData();
-    console.log(users)
+    // console.log(users)
 
     return (
         <div>

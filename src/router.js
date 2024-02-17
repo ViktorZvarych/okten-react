@@ -4,7 +4,8 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import {commentsService, postsService, usersService} from "./services";
 import {
     CommentDetailsPage,
-    CommentsPage, ErrorPage,
+    CommentsPage,
+    ErrorPage,
     HomePage,
     PostDetailsPage,
     PostsPage,

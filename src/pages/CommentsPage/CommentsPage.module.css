@@ -1,0 +1,17 @@
+.comments {
+    display: flex;
+    gap: 5vw;
+
+    > div {
+        width: 50%;
+    }
+
+    > div:nth-child(1) {
+        width: 60%;
+        max-height: 83vh;
+        overflow: auto;
+    }
+    > div:nth-child(2) {
+        width: 40%;
+    }
+}

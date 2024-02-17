@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
 import css from './Button.module.css'
 
-const Button = ({id = 1, title = 'Details', user=null,post=null,comment=null }) => {
+const Button = ({id, title = 'Details', user=null,post=null,comment=null }) => {
+
     const navigate = useNavigate();
+
     const onClickHandler = () => {
         if (user) {
             navigate(id.toString(), {state: {userId: id, user}});

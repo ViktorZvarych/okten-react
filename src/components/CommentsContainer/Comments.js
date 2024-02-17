@@ -6,7 +6,7 @@ const Comments = ({data}) => {
     const [comments, setComments] =useState([]);
 
     useEffect(() => {
-        setComments(data)
+        setComments(data);
     }, []);
     return (
         <div>

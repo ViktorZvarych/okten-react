@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useNavigate} from "react-router-dom";
 
-import css from './Button.module.css'
+import css from './CustomButton.module.css'
 
-const Button = ({id, title = 'Details', user=null,post=null,comment=null }) => {
+const CustomButton = ({id, title = 'Details', user=null,post=null,comment=null }) => {
 
     const navigate = useNavigate();
 
@@ -18,8 +18,8 @@ const Button = ({id, title = 'Details', user=null,post=null,comment=null }) => {
     }
 
     return (
-        <button className={css.button} onClick={onClickHandler}>{title} </button>
+        <button className={css.button} onClick={onClickHandler}>{title}</button>
     );
 };
 
-export default Button;
+export default CustomButton;

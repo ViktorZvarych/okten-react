@@ -7,7 +7,7 @@ const Posts = ({data}) => {
 
     useEffect(() => {
         setPosts(data)
-    }, []);
+    }, [data]);
 
     return (
         <div>

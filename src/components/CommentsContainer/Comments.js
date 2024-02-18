@@ -7,7 +7,7 @@ const Comments = ({data}) => {
 
     useEffect(() => {
         setComments(data);
-    }, []);
+    }, [data]);
     return (
         <div>
             <h3>Comments</h3>

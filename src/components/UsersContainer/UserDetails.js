@@ -8,8 +8,7 @@ const UserDetails = () => {
     const [userDetails, setUserDetails] = useState(null);
 
     const {state} = useLocation();
-    const {id} = useParams()
-    console.log(state, id)
+    const {id} = useParams();
 
     useEffect(() => {
         if (state?.user) {
@@ -19,7 +18,7 @@ const UserDetails = () => {
                 .getById(id)
                 .then(({data}) => setUserDetails(createDetailsArray(data)))
         }
-    }, [id]);
+    }, [id, state.user]);
 
     return (
         <div>
@@ -29,11 +28,13 @@ const UserDetails = () => {
                 <div>
                     <h3>User details</h3>
                     {
-                    userDetails.map(({key, value}) =>
-                        (<p key={Math.random()}>
-                            {key}: <b>{value}</b>
-                        </p>))
-                }
+                        userDetails.map(({key, value}) =>
+                            (
+                                <p key={Math.random()}>
+                                    {key}: <i>{value}</i>
+                                </p>
+                            ))
+                    }
                 </div>
             }
 

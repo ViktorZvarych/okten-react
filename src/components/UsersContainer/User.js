@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Button} from "../index";
+import {CustomButton} from "../index";
 
 const User = ({user}) => {
     const {id, name} = user;
@@ -8,7 +8,7 @@ const User = ({user}) => {
     return (
         <div>
             <p>Id: {id} - Name: {name}</p>
-            <Button id={id} user={user}/>
+            <CustomButton id={id} user={user}/>
         </div>
     )
         ;

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button} from "../index";
+
+import {CustomButton} from "../index";
 
 const Post = ({post}) => {
     const {id, title} = post;
@@ -7,7 +8,7 @@ const Post = ({post}) => {
     return (
         <div>
             <p>Id: {id} - Title: {title}</p>
-            <Button id={id} post={post}/>
+            <CustomButton id={id} post={post}/>
         </div>
 
     )

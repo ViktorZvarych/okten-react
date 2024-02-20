@@ -6,18 +6,18 @@ const comments = '/comments';
 
 const urls = {
     users: {
-        base: `${baseURL}${users}`,
-        byId: (id) => `${baseURL}${users}/${id}`
+        base: `${users}`,
+        byId: (id) => `${users}/${id}`
     },
     posts: {
         base: `${baseURL}${posts}`,
-        byId: (id) => `${baseURL}${posts}/${id}`,
-        byUserId: (userId) => `${baseURL}/${userId}${posts}`
+        byId: (id) => `${posts}/${id}`,
+        byUserId: (userId) => `${userId}${posts}`
     },
     comments: {
         base: `${baseURL}${comments}`,
-        byId: (id) => `${baseURL}${comments}/${id}`,
-        byUserId: (postId) => `${baseURL}/${postId}${comments}`
+        byId: (id) => `${comments}/${id}`,
+        byUserId: (postId) => `${postId}${comments}`
     },
 }
 

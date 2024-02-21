@@ -7,11 +7,8 @@ import {Characters, Episodes} from "./components";
 const router = createBrowserRouter([
     {
         path: '', element: <MainLayout/>, children: [
-            {index: true, element: <Navigate to={'episodes'}/>},
-            {path: 'episodes', element: <Episodes/>, children: [
-                    {path: 'characters', element: <Characters/>}
-                ]},
-
+            {index: true, element: <Episodes/>},
+            {path: 'characters', element: <Characters/>}
         ]
     }
 ]);

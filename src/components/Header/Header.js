@@ -1,13 +1,17 @@
 import {useContext, useEffect} from "react";
 
-import {Context} from "../../layouts/MainLayout";
+import {NavLink} from "react-router-dom";
+import {Context} from "../../hocs";
 
 const Header = () => {
     console.log('render Header');
+    const {chosenEpisode, setChosenEpisode} = useContext(Context);
 
     return (
         <div>
-            <h2>Header</h2>
+            {chosenEpisode && <h2>Episode: {chosenEpisode}</h2>}
+            <NavLink to={''} onClick={() => setChosenEpisode(null)}>Home</NavLink>
+            <hr/>
         </div>
     );
 };

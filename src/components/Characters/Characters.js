@@ -6,15 +6,19 @@ import {Character} from "./Character";
 const Characters = () => {
     console.log('render Characters');
 
-    const {state: {characters}} = useLocation();
 
-    const [charactersArray, setCharactersArray] =useState([]);
+    const {state} = useLocation();
+
+    const characters = state?.characters ? state.characters : []
+
+    const [charactersArray, setCharactersArray] = useState([]);
 
     useEffect(() => {
         characters.map(async (characterUrl) => {
-            const characterDetails = await charactersService.getByUrl(characterUrl).then(({data})=>data);
+            const characterDetails = await charactersService.getByUrl(characterUrl).then(({data}) => data);
             setCharactersArray(prev => [...prev, characterDetails]);
         })
+
     }, [characters]);
 
 
@@ -24,8 +28,8 @@ const Characters = () => {
 
     return (
         <div>
-            <h2>Characters</h2>
-            {charactersArray.map(character=> <Character key={Math.random()} character={character}/>)}
+            <h2>Episode Characters</h2>
+            {charactersArray.map(character => <Character key={Math.random()} character={character}/>)}
         </div>
     );
 };

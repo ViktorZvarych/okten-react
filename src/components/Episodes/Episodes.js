@@ -1,21 +1,25 @@
-import {useContext, useEffect, useState} from "react";
+import {Outlet, useSearchParams} from "react-router-dom";
 
-import {episodesService} from "../../services";
 import {Episode} from "./Episode";
-import {Outlet} from "react-router-dom";
-import {Context} from "../../layouts/MainLayout";
+import {useAppContext} from "../../hooks";
+import {Pagination} from "../Pagination/Pagination";
+import {useEffect} from "react";
 
 const Episodes = () => {
     console.log('render Episodes');
 
-    const {episodes, setEpisodes} = useContext(Context);
+    useEffect(() => {
+
+    }, []);
+
+    const {episodes} = useAppContext();
 
     console.log(episodes);
 
     return (
         <div>
-            <Outlet/>
             <h2>Episodes</h2>
+            <Pagination/>
             {
                 episodes
                 &&

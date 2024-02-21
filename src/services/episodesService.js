@@ -2,7 +2,7 @@ import {apiService} from "./apiService";
 import {urls} from "../constants";
 
 const episodesService = {
-    getAll: () => apiService.get(urls.episodes)
+    getAll: (page = '1') => apiService.get(urls.episodes, {params: {page}})
 };
 
 export {episodesService};

@@ -3,7 +3,7 @@ const Character = ({character}) => {
 const {id, name} = character;
     return (
         <div>
-            <h2>Character</h2>
+            {/*<h2>Character</h2>*/}
             <p>id: {id}</p>
             <p>name: {name}</p>
             <hr/>

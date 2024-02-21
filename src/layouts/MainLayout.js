@@ -1,36 +1,25 @@
 import {Outlet} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 import {Header} from "../components";
-import {createContext, useEffect, useState} from "react";
-import {episodesService} from "../services";
+import {ContextProvider} from "../hocs";
 
-const Context = createContext(null);
 
 const MainLayout = () => {
     console.log('render MainLayout');
 
-    const [episodes, setEpisodes] = useState(null);
-
-    useEffect(() => {
-        episodesService.getAll().then(({data}) => setEpisodes(data.results))
-        console.log(episodes);
-    }, []);
-
-
-
     return (
-        <Context.Provider value={{episodes}}>
+        <ContextProvider>
             <div>
                 <Header/>
-                <h2>MainLayout</h2>
+                {/*<h2>MainLayout</h2>*/}
                 <Outlet/>
             </div>
-        </Context.Provider>
+        </ContextProvider>
 
     );
 };
 
 export {
-    MainLayout,
-    Context
+    MainLayout
 };

@@ -9,8 +9,8 @@ const Header = () => {
 
     return (
         <div>
-            {chosenEpisode && <h2>Episode: {chosenEpisode}</h2>}
             <NavLink to={''} onClick={() => setChosenEpisode(null)}>Home</NavLink>
+            {chosenEpisode && <h2>Episode: {chosenEpisode}</h2>}
             <hr/>
         </div>
     );

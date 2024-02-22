@@ -4,17 +4,22 @@ import {Episode} from "./Episode";
 import {useAppContext} from "../../hooks";
 import {Pagination} from "../Pagination/Pagination";
 import {useEffect} from "react";
+import {episodesService} from "../../services";
 
 const Episodes = () => {
     console.log('render Episodes');
 
+    const {episodes, setEpisodes} = useAppContext();
+
+    const [urlParams, setUrlParams] = useSearchParams();
+
+    const currentPage = urlParams.get('page')
+
     useEffect(() => {
-
-    }, []);
-
-    const {episodes} = useAppContext();
-
-    console.log(episodes);
+        episodesService.getAll(currentPage).then(({data}) => {
+            setEpisodes(data.results);
+        });
+    }, [currentPage]);
 
     return (
         <div>

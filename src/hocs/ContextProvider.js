@@ -8,17 +8,6 @@ const ContextProvider = ({children}) => {
     const [episodes, setEpisodes] = useState(null);
     const [chosenEpisode, setChosenEpisode] = useState(null)
 
-    const [urlParams, setUrlParams] = useSearchParams();
-
-    const currentPage = urlParams.get('page')
-    console.log(currentPage);
-
-    useEffect(() => {
-        episodesService.getAll(currentPage).then(({data}) => {
-            setEpisodes(data.results);
-        });
-    }, [currentPage]);
-
     return (
         <div>
             <Context.Provider value={{episodes, setEpisodes, chosenEpisode, setChosenEpisode}}>

@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
 import {charactersService} from "../../services";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {Character} from "./Character";
 
 const Characters = () => {
     console.log('render Characters');
+
+    const navigate = useNavigate();
 
     const {state} = useLocation();
 
@@ -24,15 +26,20 @@ const Characters = () => {
             } catch (e) {
                 console.log(e)
             }
-
         })()
     }, [characters]);
 
+    useEffect(() => {
+        console.log('!!!!', charactersArray)
+    }, [charactersArray]);
+
+    const onClickHandler = () => navigate('../episodes')
 
     return (
         <div>
             <h2>Episode Characters</h2>
-            {charactersArray.map(character => <Character key={character.id} character={character}/>)}
+            <button onClick={onClickHandler}>Episodes</button>
+            {charactersArray && charactersArray.map(character => <Character key={character.id} character={character}/>)}
         </div>
     );
 };

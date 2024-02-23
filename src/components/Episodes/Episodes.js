@@ -11,7 +11,7 @@ const Episodes = () => {
 
     const {episodes, setEpisodes} = useAppContext();
 
-    const [urlParams, setUrlParams] = useSearchParams();
+    const [urlParams] = useSearchParams();
 
     const currentPage = urlParams.get('page')
 
@@ -19,7 +19,7 @@ const Episodes = () => {
         episodesService.getAll(currentPage).then(({data}) => {
             setEpisodes(data.results);
         });
-    }, [currentPage]);
+    }, [currentPage, setEpisodes]);
 
     return (
         <div>

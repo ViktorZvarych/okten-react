@@ -1,6 +1,4 @@
-import {createContext, useEffect, useState} from "react";
-import {episodesService} from "../services";
-import {useSearchParams} from "react-router-dom";
+import {createContext, useState} from "react";
 
 const Context = createContext(null);
 

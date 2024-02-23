@@ -1,9 +1,9 @@
-import {Outlet, useSearchParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
+import {useEffect} from "react";
 
 import {Episode} from "./Episode";
 import {useAppContext} from "../../hooks";
 import {Pagination} from "../Pagination/Pagination";
-import {useEffect} from "react";
 import {episodesService} from "../../services";
 
 const Episodes = () => {

@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
-import {charactersService} from "../../services";
 import {useLocation, useNavigate} from "react-router-dom";
+
+import {charactersService} from "../../services";
 import {Character} from "./Character";
 
 const Characters = () => {
@@ -10,16 +11,17 @@ const Characters = () => {
 
     const {state} = useLocation();
 
-    const characters = state?.characters ? state.characters : []
-
     const [charactersArray, setCharactersArray] = useState([]);
 
     useEffect(() => {
+        const characters = state?.characters ? state.characters : [];
+        
         (async () => {
             try {
                 let charactersIdArray = [];
                 characters.map(characterUrl => {
                     charactersIdArray.push(characterUrl.slice(characterUrl.lastIndexOf('/')+1))
+                    return console.log('Warning:(21, 45) ESLint: Array.prototype.map() expects a return value from arrow function. (array-callback-return)')
                 })
                 const {data} = await charactersService.getById(charactersIdArray.join(','));
                 setCharactersArray(data);
@@ -27,7 +29,7 @@ const Characters = () => {
                 console.log(e)
             }
         })()
-    }, [characters]);
+    }, [state.characters]);
 
     useEffect(() => {
         console.log('!!!!', charactersArray)
